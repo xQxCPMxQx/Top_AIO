@@ -13,6 +13,9 @@ namespace Top_AIO.TopAioSDKEx
 {
     internal class PlaySharp
     {
+        public static Obj_AI_Hero Player;
+        public static List<Obj_AI_Hero> Enemies = new List<Obj_AI_Hero>(), Allies = new List<Obj_AI_Hero>();
+        public static Spell Q, W, E, R;
         public static string ChampionName => "Top Aio";
         public static void Init()
         {
@@ -22,16 +25,20 @@ namespace Top_AIO.TopAioSDKEx
 
         private static void Top_AIO_OnLoad(object sender, EventArgs e)
         {
+            Player = GameObjects.Player;
+
             if (ObjectManager.Player.CharData.BaseSkinName != ChampionName)
             {
                 return;
             }
+            foreach (var enemy in GameObjects.EnemyHeroes) { Enemies.Add(enemy); }
+                foreach (var ally in GameObjects.AllyHeroes) { Allies.Add(ally); }
 
-            Core.CoreMenu.Init();
+                    Core.CoreMenu.Init();
 
             Game.PrintChat("<font color='#DDDDFF'><b> Taiwan By: CjShu :) </b></font>");
             Game.PrintChat("<font color='#FF8EFF'><b> If you like.</font><font color='#96FED1'><b>Donations welcome!</b></font>");
             Game.PrintChat("<font color='#990033'><b>PayPal: </b></font><font color='#CCFF66'><b> az937182@Gmail.com </b></font><font color='#FF9900'><b>-Top Aio SDK</b></font>");
-
         }
     }
+}

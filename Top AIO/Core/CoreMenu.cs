@@ -32,8 +32,6 @@ namespace Top_AIO.Core
     internal class CoreMenu
     {
         public static Orbwalker Orbwalker;
-        public static Obj_AI_Hero Player;
-        public static Menu Activator;
         public static Champion ChampionClass;
         public static Menu Config;
         public static Menu Combo;
@@ -41,11 +39,8 @@ namespace Top_AIO.Core
         public static Menu Harass;
         public static Menu Key;
         public static Menu LastHit;
-        public static Spell Q, W, E, R;
+        public static Menu Activator;
         public static SpellSlot Ignite, Flash;
-
-
-        public static List<Obj_AI_Hero> Enemies = new List<Obj_AI_Hero>(), Allies = new List<Obj_AI_Hero>();
 
         public static void Init()
         {
@@ -61,5 +56,6 @@ namespace Top_AIO.Core
                 Ser.Add(new MenuSeparator("Syndra", "Syndra"));
             }
 
-    }
+            
+        }
 }
