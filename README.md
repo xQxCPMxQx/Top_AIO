@@ -1,5 +1,6 @@
 # Top_AIO By:CjShu
-/* Copyright (c) LeagueSharp 2016
+
+ * Copyright (c) LeagueSharp 2016
  * 版權所有 (C) LeagueSharp 2016
  * No reproduction is allowed in any way unless given written consent
  * 無不能 在產生 是允許以任何方式 除非 特定書面同意
