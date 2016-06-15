@@ -17,7 +17,12 @@
 using LeagueSharp;
 using LeagueSharp.SDK;
 using LeagueSharp.SDK.UI;
+using LeagueSharp.SDK.Utils;
+using LeagueSharp.SDK.Enumerations;
 using System;
+using SharpDX;
+using SharpDX.Direct3D9;
+using System.Drawing;
 using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
@@ -27,7 +32,7 @@ namespace Top_AIO.Core
     internal class CoreMenu
     {
         public static Orbwalker Orbwalker;
-        public static Menu Menu { get; private set; }
+        public static Menu MMenu { get; private set; }
         public static Menu Key { get; private set; }
         public static Menu Q { get; private set; }
         public static Menu W { get; private set; }
@@ -41,6 +46,20 @@ namespace Top_AIO.Core
         public static Menu Misc { get; private set; }
         public static Menu Flee { get; private set; }
         public static Menu Harass { get; private set; }
+
+        public static void Init()
+        {
+            MMenu = new Menu("Top Aio", "Top AIO SDKEx", true);
+            MMenu.Add(new MenuSeparator("Credit", "Credit : CjShu"));
+            MMenu.Add(new MenuSeparator("News", "News :Thank you my friend xQx. And NightMoon. Aid"));
+            var Ser = MMenu.Add(new Menu("Series", "Series Champions"));
+            {
+                Ser.Add(new MenuSeparator("Jinx", "Jinx"));
+                Ser.Add(new MenuSeparator("Jhin", "Jhin"));
+                Ser.Add(new MenuSeparator("Vayne", "Vayne"));
+                Ser.Add(new MenuSeparator("Malzahar", "Malzahar"));
+                Ser.Add(new MenuSeparator("Syndra", "Syndra"));
+            }
 
     }
 }
