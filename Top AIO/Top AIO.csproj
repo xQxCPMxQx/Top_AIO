@@ -66,8 +66,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Champion\Jinx\JInx.cs" />
+    <Compile Include="Champions\Jinx\JInx.cs" />
     <Compile Include="Core\CoreMenu.cs" />
+    <Compile Include="Core\Utility\Utils.cs" />
     <Compile Include="TopAioSDKEx\PlaySharp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

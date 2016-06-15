@@ -8,7 +8,7 @@ using LeagueSharp.SDK;
 using LeagueSharp.SDK.Enumerations;
 using LeagueSharp.SDK.UI;
 
-namespace Top_AIO.Champion.Jinx
+namespace Top_AIO.Champions.Jinx
 {
     class Jinx : Program
     {
@@ -17,5 +17,7 @@ namespace Top_AIO.Champion.Jinx
         public Jinx()
         { 
             }
+
+
     }
 }

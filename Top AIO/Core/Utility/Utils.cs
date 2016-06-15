@@ -14,13 +14,18 @@
  */
 #endregion License : 許可證
 
-namespace Top_AIO
+#region
+
+using System;
+using LeagueSharp;
+using LeagueSharp.SDK.UI;
+using System.Reflection;
+
+#endregion
+
+namespace Top_AIO.Core.Utility
 {
-    internal class Program
-    {        
-        private static void Main(string[] args)
-        {
-            TopAioSDKEx.PlaySharp.Init();
-        }
+    public class Utils
+    {
     }
 }
