@@ -32,27 +32,27 @@ namespace Top_AIO.Core
     internal class CoreMenu
     {
         public static Orbwalker Orbwalker;
-        public static Menu MMenu { get; private set; }
-        public static Menu Key { get; private set; }
-        public static Menu Q { get; private set; }
-        public static Menu W { get; private set; }
-        public static Menu E { get; private set; }
-        public static Menu R { get; private set; }
-        public static Menu Combo { get; private set; }
-        public static Menu Farm { get; private set; }
-        public static Menu Tools { get; private set; }
-        public static Menu Props { get; private set; }
-        public static Menu Draw { get; private set; }
-        public static Menu Misc { get; private set; }
-        public static Menu Flee { get; private set; }
-        public static Menu Harass { get; private set; }
+        public static Obj_AI_Hero Player;
+        public static Menu Activator;
+        public static Champion ChampionClass;
+        public static Menu Config;
+        public static Menu Combo;
+        public static Menu LaneClear;
+        public static Menu Harass;
+        public static Menu Key;
+        public static Menu LastHit;
+        public static Spell Q, W, E, R;
+        public static SpellSlot Ignite, Flash;
+
+
+        public static List<Obj_AI_Hero> Enemies = new List<Obj_AI_Hero>(), Allies = new List<Obj_AI_Hero>();
 
         public static void Init()
         {
-            MMenu = new Menu("Top Aio", "Top AIO SDKEx", true);
-            MMenu.Add(new MenuSeparator("Credit", "Credit : CjShu"));
-            MMenu.Add(new MenuSeparator("News", "News :Thank you my friend xQx. And NightMoon. Aid"));
-            var Ser = MMenu.Add(new Menu("Series", "Series Champions"));
+            Config = new Menu("Top Aio", "Top AIO SDKEx", true);
+            Config.Add(new MenuSeparator("Credit", "Credit : CjShu"));
+            Config.Add(new MenuSeparator("News", "News :Thank you my friend xQx. And NightMoon. Aid"));
+            var Ser = Config.Add(new Menu("Series", "Series Champions"));
             {
                 Ser.Add(new MenuSeparator("Jinx", "Jinx"));
                 Ser.Add(new MenuSeparator("Jhin", "Jhin"));
