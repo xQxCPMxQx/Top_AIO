@@ -6,7 +6,7 @@
  * 無不能 在產生 是允許以任何方式 除非 特定書面同意
  * from the LeagueSharp staff.
  * 來自 原作者 LeagueSharp 開發者人員
- * Date: 2/20/2016
+ * Date: 2016/6/15
  * 日期: 2016/6/15
  * File: Top_AIO
  * 文件: Top_AIO
