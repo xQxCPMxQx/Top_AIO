@@ -18,6 +18,7 @@ using LeagueSharp;
 using LeagueSharp.SDK;
 using LeagueSharp.SDK.UI;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -25,5 +26,21 @@ namespace Top_AIO.Core
 {
     internal class CoreMenu
     {
+        public static Orbwalker Orbwalker;
+        public static Menu Menu { get; private set; }
+        public static Menu Key { get; private set; }
+        public static Menu Q { get; private set; }
+        public static Menu W { get; private set; }
+        public static Menu E { get; private set; }
+        public static Menu R { get; private set; }
+        public static Menu Combo { get; private set; }
+        public static Menu Farm { get; private set; }
+        public static Menu Tools { get; private set; }
+        public static Menu Props { get; private set; }
+        public static Menu Draw { get; private set; }
+        public static Menu Misc { get; private set; }
+        public static Menu Flee { get; private set; }
+        public static Menu Harass { get; private set; }
+
     }
 }
