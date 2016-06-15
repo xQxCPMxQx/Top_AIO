@@ -16,11 +16,12 @@
 
 namespace Top_AIO
 {
+    using TopAioSDKEx;
     internal class Program
     {        
         private static void Main(string[] args)
         {
-            TopAioSDKEx.PlaySharp.Init();
+            PlaySharp.Init();
         }
     }
 }

@@ -20,6 +20,7 @@ using System;
 using LeagueSharp;
 using LeagueSharp.SDK.UI;
 using System.Reflection;
+using static Top_AIO.TopAioSDKEx.PlaySharp;
 
 #endregion
 
@@ -29,19 +30,18 @@ namespace Top_AIO.Core
     {       
         public static void Init()
         {
-        var Config = new Menu("Top Aio", "Top AIO SDKEx", true);
+            Config = new Menu("Top Aio", "Top AIO SDKEx", true);
 
             Config.Add(new MenuSeparator("Credit", "Credit : CjShu"));
             Config.Add(new MenuSeparator("Version", "Version : " + Assembly.GetExecutingAssembly().GetName().Version));
             Config.Add(new MenuSeparator("News", "News :Thank you my friend xQx. And NightMoon. Aid"));
-            var Ser = Config.Add(new Menu("Series", "Series Champions"));
-            {
+             Ser = Config.Add(new Menu("Series", "Series Champions"));
+            
                 Ser.Add(new MenuSeparator("Jinx", "Jinx"));
                 Ser.Add(new MenuSeparator("Jhin", "Jhin"));
                 Ser.Add(new MenuSeparator("Vayne", "Vayne"));
                 Ser.Add(new MenuSeparator("Malzahar", "Malzahar"));
                 Ser.Add(new MenuSeparator("Syndra", "Syndra"));
-            }          
-        }
+        }          
     }
 }

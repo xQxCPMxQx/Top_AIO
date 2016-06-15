@@ -41,14 +41,16 @@ namespace Top_AIO.TopAioSDKEx
         public static List<Spell> SpellList = new List<Spell>();
         public static Orbwalker Orbwalker;
         public static Menu Config { get; set; }
-        public static Menu Combo;
-        public static Menu LaneClear;
-        public static Menu Harass;
-        public static Menu Key;
-        public static Menu LastHit;
-        public static Menu Activator;
-        public static SpellSlot Ignite, Flash;
-        public static string ChampionName => "Top Aio";
+        public static Menu Ser { get; set; }
+        public static Menu Combo { get; set; }
+        public static Menu LaneClear { get; set; }
+        public static Menu Harass { get; set; }
+        public static Menu Key { get; set; }
+        public static Menu LastHit { get; set; }
+        public static Menu Activator { get; set; }
+        public static SpellSlot Ignite { get; set; }
+        public static SpellSlot Flash { get; set; }
+
         public static void Init()
         {
             Bootstrap.Init();
@@ -56,16 +58,12 @@ namespace Top_AIO.TopAioSDKEx
         }
 
         private static void Top_AIO_OnLoad(object sender, EventArgs e)
-        {
-            
-            if (ObjectManager.Player.CharData.BaseSkinName != ChampionName)
-            {
-                return;
-            }
+        {           
             foreach (var enemy in GameObjects.EnemyHeroes) { Enemies.Add(enemy); }
                 foreach (var ally in GameObjects.AllyHeroes) { Allies.Add(ally); }
 
             var championName = ObjectManager.Player.ChampionName.ToLowerInvariant();
+
             Core.CoreMenu.Init();
 
             Game.PrintChat("<font color='#DDDDFF'><b> Taiwan By: CjShu :) </b></font>");
@@ -78,7 +76,7 @@ namespace Top_AIO.TopAioSDKEx
                     new Champions.Jinx.Jinx();
                     break;
             }
-            new   Core.Utility.Utils();
+            new Core.Utility.Manager();
             Config.Attach();
           }        
      }
