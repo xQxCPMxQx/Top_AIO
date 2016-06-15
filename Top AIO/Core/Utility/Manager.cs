@@ -25,7 +25,6 @@ using SharpDX.Direct3D9;
 using System.Collections.Generic;
 using System.Linq;
 using Top_AIO.TopAioSDKEx;
-using static LeagueSharp.Common.Packet;
 
 #endregion
 
@@ -56,68 +55,41 @@ namespace Top_AIO.Core.Utility
             {
                 return Variables.TargetSelector.GetTarget(spell, true);
             }
-            private static void SimplePing(PingCategory pingCategory = PingCategory.Fallback)
-            {
-                S2C.Ping.Encoded(new S2C.Ping.Struct(PingLocation.X, PingLocation.Y, 0, 0, PingType.Fallback)).Process();
-                Game.ShowPing(pingCategory, PingLocation, true);
-
-            }
             public static bool InAutoAttackRange(AttackableUnit target)
+           {
+            var baseTarget = (Obj_AI_Base)target;
+            var myRange = ObjectManager.Player.GetRealAutoAttackRange();
+
+            if (baseTarget != null)
             {
-                var baseTarget = (Obj_AI_Base)target;
-                var myRange = ObjectManager.Player.GetRealAutoAttackRange();
-
-                if (baseTarget != null)
-                {
-                    return baseTarget.IsHPBarRendered && Vector2.DistanceSquared(baseTarget.ServerPosition.ToVector2(), ObjectManager.Player.ServerPosition.ToVector2()) <= myRange * myRange;
-                }
-
-                return target.IsValidTarget() && Vector2.DistanceSquared(target.Position.ToVector2(), ObjectManager.Player.ServerPosition.ToVector2()) <= myRange * myRange;
+                return baseTarget.IsHPBarRendered && Vector2.DistanceSquared(baseTarget.ServerPosition.ToVector2(), ObjectManager.Player.ServerPosition.ToVector2()) <= myRange * myRange;
             }
+
+            return target.IsValidTarget() && Vector2.DistanceSquared(target.Position.ToVector2(), ObjectManager.Player.ServerPosition.ToVector2()) <= myRange * myRange;
+           }
             public static bool CanMove(Obj_AI_Hero hero)
             {
-                DebuffTypes.Add(BuffType.Blind);
-                DebuffTypes.Add(BuffType.Charm);
-                DebuffTypes.Add(BuffType.Fear);
-                DebuffTypes.Add(BuffType.Flee);
-                DebuffTypes.Add(BuffType.Stun);
-                DebuffTypes.Add(BuffType.Snare);
-                DebuffTypes.Add(BuffType.Taunt);
-                DebuffTypes.Add(BuffType.Suppression);
-                DebuffTypes.Add(BuffType.Polymorph);
-                DebuffTypes.Add(BuffType.Blind);
-                DebuffTypes.Add(BuffType.Silence);
+            DebuffTypes.Add(BuffType.Blind);
+            DebuffTypes.Add(BuffType.Charm);
+            DebuffTypes.Add(BuffType.Fear);
+            DebuffTypes.Add(BuffType.Flee);
+            DebuffTypes.Add(BuffType.Stun);
+            DebuffTypes.Add(BuffType.Snare);
+            DebuffTypes.Add(BuffType.Taunt);
+            DebuffTypes.Add(BuffType.Suppression);
+            DebuffTypes.Add(BuffType.Polymorph);
+            DebuffTypes.Add(BuffType.Blind);
+            DebuffTypes.Add(BuffType.Silence);
 
-                foreach (var buff in hero.Buffs)
+            foreach (var buff in hero.Buffs)
+            {
+                if (DebuffTypes.Contains(buff.Type) && (buff.EndTime - Game.Time) * 1000 >= 600 && buff.IsActive)
                 {
-                    if (DebuffTypes.Contains(buff.Type) && (buff.EndTime - Game.Time) * 1000 >= 600 && buff.IsActive)
-                    {
-                        return false;
-                    }
+                    return false;
                 }
+            }
 
-                return true;
-            }
-            public static bool IsFollowing(Obj_AI_Base t)
-            {
-                if (!t.IsFacing(ObjectManager.Player)
-                    && ObjectManager.Player.Position.Distance(t.Path[0])
-                    < ObjectManager.Player.Position.Distance(t.Position))
-                {
-                    return true;
-                }
-                return false;
-            }
-            public static bool IsRunning(Obj_AI_Base t)
-            {
-                if (!t.IsFacing(ObjectManager.Player)
-                    && (t.Path.Count() >= 1
-                        && ObjectManager.Player.Position.Distance(t.Path[0])
-                        > ObjectManager.Player.Position.Distance(t.Position)))
-                {
-                    return true;
-                }
-                return false;
+            return true;
             }
 
             private static readonly string[] BettrWithEvade =
