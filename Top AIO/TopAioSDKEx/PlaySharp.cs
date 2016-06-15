@@ -72,7 +72,7 @@ namespace Top_AIO.TopAioSDKEx
 
             switch (Player.ChampionName)
             {
-                case "Jix":
+                case "jinx":
                     new Champions.Jinx.Jinx();
                     break;
             }
